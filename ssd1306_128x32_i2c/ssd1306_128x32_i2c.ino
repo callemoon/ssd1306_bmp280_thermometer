@@ -1,6 +1,6 @@
-// Thermometer for Raspberry Pi Pico using SSD1306 display and BMP280 temp sensor
-// Connect ssd1306 to I2C1 on pin 18/19
+// Thermometer for Raspberry Pi Pico using SSD1306 OLED 128*32 display and BMP280 temp sensor
 // Connect bmp280 to I2C0 on pin 16/17
+// Connect ssd1306 to I2C1 on pin 18/19
 
 #include <Wire.h>
 #include <Adafruit_GFX.h>
