@@ -19,10 +19,12 @@ Adafruit_BMP280 bmp; // I2C
 void setup() {
   Serial.begin(9600);
 
+  // BMP280 temp sensor
   Wire.setSDA(16);
   Wire.setSCL(17);
   Wire.begin();
 
+  // SSD1306 display
   Wire1.setSDA(18);
   Wire1.setSCL(19);
 
