@@ -1,3 +1,7 @@
+// Thermometer for Raspberry Pi Pico using SSD1306 display and BMP280 temp sensor
+// Connect ssd1306 to I2C1 on pin 18/19
+// Connect bmp280 to I2C0 on pin 18/19
+
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -22,7 +26,11 @@ void setup() {
   Wire1.setSDA(18);
   Wire1.setSCL(19);
 
-  int status = bmp.begin(BMP280_ADDRESS_ALT);
+  if(!bmp.begin(BMP280_ADDRESS_ALT))
+  {
+    Serial.println(F("BMP280 allocation failed"));
+    for(;;); // Don't proceed, loop forever
+  }
 
   /* Default settings from datasheet. */
   bmp.setSampling(Adafruit_BMP280::MODE_NORMAL,     /* Operating Mode. */
